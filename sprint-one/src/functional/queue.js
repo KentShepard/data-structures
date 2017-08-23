@@ -3,9 +3,8 @@ var Queue = function() {
 
   // Use an object with numeric keys to store values
   var storage = {
-    // 1: 'a',
-    // 2: 'b',
-    // 3: 'c'
+    // 1: 'b',
+    // 2: 'c',
   };
   var size = 0;
 
@@ -18,16 +17,17 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     var deleted = storage[1];
+    console.log(storage[1]);
     for (var key in storage) {
-      if (!key + 1 > size) {
-        storage[key] = storage[key + 1]
+      if (Number(key) + 1 <= size) {
+        storage[key] = storage[Number(key) + 1];
       }
     }
-    delete storage[size]
+    delete storage[size];
     if (size > 0) {
       size--;
     }
-    return deleted
+    return deleted;
   };
 
   someInstance.size = function() {
