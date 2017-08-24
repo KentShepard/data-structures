@@ -17,7 +17,6 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     var deleted = storage[1];
-    console.log(storage[1]);
     for (var key in storage) {
       if (Number(key) + 1 <= size) {
         storage[key] = storage[Number(key) + 1];
