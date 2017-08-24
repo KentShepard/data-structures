@@ -7,7 +7,8 @@ var Queue = function() {
     // 2: 'b',
     // 3: 'c'
   };
-  someInstances.count = 0;
+  someInstances.sizeCount = 0;
+  someInstances.addCount = 0;
   someInstances.nextInLine = 1;
 
   _.extend(someInstances, queueMethods);
@@ -17,8 +18,9 @@ var Queue = function() {
 
 var queueMethods = {};
 queueMethods.enqueue = function(value) {
-  this.count++;
-  this.storage[this.count] = value;
+  this.sizeCount++;
+  this.addCount++;
+  this.storage[this.addCount] = value;
 };
 
 queueMethods.dequeue = function() {
@@ -26,18 +28,16 @@ queueMethods.dequeue = function() {
 
   delete this.storage[this.nextInLine];
 
-  if (this.count > 0) {
-    this.count--;
+  if (this.sizeCount > 0) {
+    this.sizeCount--;
   }
 
-  if (this.nextInLine === 1 && this.count === 0) {
-    this.nextInLine = 1
-  } else {
-    this.nextInLine++;
-  }
+  this.nextInLine++
   return deleted;
 };
 
 queueMethods.size = function() {
-  return this.count;
+  return this.sizeCount;
 };
+
+
