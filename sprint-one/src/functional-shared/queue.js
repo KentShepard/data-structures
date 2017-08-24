@@ -32,7 +32,7 @@ queueMethods.dequeue = function() {
     this.sizeCount--;
   }
 
-  this.nextInLine++
+  this.nextInLine++;
   return deleted;
 };
 

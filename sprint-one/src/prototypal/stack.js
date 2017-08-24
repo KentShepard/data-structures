@@ -10,13 +10,19 @@ var Stack = function() {
 
 var stackMethods = {};
 stackMethods.push = function(value) {
-
-}
+  this.count++;
+  this.storage[this.count] = value;
+};
 
 stackMethods.pop = function() {
-
-}
+  var deleted = this.storage[this.count];
+  delete this.storage[this.count];
+  if (this.count > 0) {
+    this.count--;
+  }
+  return deleted;
+};
 
 stackMethods.size = function() {
-
-}
+  return this.count;
+};
