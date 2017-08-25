@@ -41,12 +41,13 @@ var LinkedList = function() {
 
   list.contains = function(target) {
     var currentNode = this.head;
-    while (currentNode.next !== null) {
+    for (var i = 0; i < this.length; i++) {
       if (currentNode.value === target) {
-
+        return true;
       }
       currentNode = currentNode.next;
     }
+    return false;
   };
   return list;
 };

@@ -23,6 +23,20 @@ describe('linkedList', function() {
     expect(linkedList.tail.value).to.equal(5);
   });
 
+  it('should return same value for head and tail when 1 value is added', function() {
+    linkedList.addToTail(4);
+    expect(linkedList.head.value).to.equal(4);
+    expect(linkedList.tail.value).to.equal(4);
+  });
+
+  it('should return correct values for head and tail when 3 values are added', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.addToTail(6);
+    expect(linkedList.head.value).to.equal(4);
+    expect(linkedList.tail.value).to.equal(6);
+  });
+
   it('should remove the head from the list when removeHead is called', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
@@ -40,14 +54,14 @@ describe('linkedList', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
     linkedList.addToTail(6);
-    linkedList.removeHead()
+    linkedList.removeHead();
     expect(linkedList.head.value).to.equal(5);
     expect(linkedList.tail.value).to.equal(6);
   });
 
   it('should remove the head and make head and tail null when only 1 item is in the list', function() {
     linkedList.addToTail(4);
-    linkedList.removeHead()
+    linkedList.removeHead();
     expect(linkedList.head).to.equal(null);
     expect(linkedList.tail).to.equal(null);
   });
