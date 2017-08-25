@@ -24,7 +24,6 @@ var LinkedList = function() {
   };
 
   list.removeHead = function() {
-    // debugger;
     var headNext = this.head.next;
     var removed = this.head.value;
     var currentNode = this.head;
