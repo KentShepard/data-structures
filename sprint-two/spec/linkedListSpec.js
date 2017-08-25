@@ -36,6 +36,30 @@ describe('linkedList', function() {
     expect(linkedList.removeHead()).to.equal(4);
   });
 
+  it('should remove the head and reassign each item in the list', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.addToTail(6);
+    linkedList.removeHead()
+    expect(linkedList.head.value).to.equal(5);
+    expect(linkedList.tail.value).to.equal(6);
+  });
+
+  it('should remove the head and make head and tail null when only 1 item is in the list', function() {
+    linkedList.addToTail(4);
+    linkedList.removeHead()
+    expect(linkedList.head).to.equal(null);
+    expect(linkedList.tail).to.equal(null);
+  });
+
+  it('should remove the head and reassign head and point to tail with the remaining value when 2 items are in the list', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeHead();
+    expect(linkedList.head.value).to.equal(5);
+    expect(linkedList.tail.value).to.equal(5);
+  });
+
   it('should contain a value that was added', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);

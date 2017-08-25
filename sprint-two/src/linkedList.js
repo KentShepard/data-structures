@@ -5,9 +5,9 @@ var LinkedList = function() {
   list.length = 0;
 
   list.addToTail = function(value) {
-    var node  = new Node(value)
+    var node = new Node(value);
     var currentNode = this.head;
-    this.length++
+    this.length++;
     if (!currentNode) {
       this.tail = node;
       this.head = node;
@@ -22,23 +22,31 @@ var LinkedList = function() {
       this[this.length].next = this.tail;
     }
   };
-    // while(currentNode.next) {
-    //   currentNode = currentNode.next;
-    // }
-
-    // currentNode.next = node;
 
   list.removeHead = function() {
+    // debugger;
+    var headNext = this.head.next;
     var removed = this.head.value;
     var currentNode = this.head;
+    this.length--;
 
-    while(currentNode.next !== null) {
-        currentNode = currentNode.next;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
     }
+
+    this.head = headNext;
     return removed;
   };
 
   list.contains = function(target) {
+    var currentNode = this.head;
+    while (currentNode.next !== null) {
+      if (currentNode.value === target) {
+
+      }
+      currentNode = currentNode.next;
+    }
   };
   return list;
 };
