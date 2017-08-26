@@ -21,7 +21,7 @@ setPrototype.remove = function(item) {
   var storage = this._storage;
   _.each(storage, function(value, key) {
     if (value === item) {
-      delete storage[key]
+      delete storage[key];
     }
   });
 };

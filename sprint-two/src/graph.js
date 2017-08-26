@@ -22,7 +22,6 @@ Graph.prototype.removeNode = function(node) {
   var index = this.nodes.indexOf(node);
   this.nodes.splice(index, 1);
   var array = this.edges[node];
-  console.log(array);
   for (var i = 0; i < array.length; i++) {
     var index = this.edges[array[i]].indexOf(node);
     this.edges[array[i]].splice(index, 1);
